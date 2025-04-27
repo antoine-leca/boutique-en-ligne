@@ -1,6 +1,6 @@
 <?php 
 namespace Demetech;
-    class connectionToDB {
+    class ConnectionToDB {
         private $host, $dbname, $username, $password;
 
         public function __construct($host, $dbname, $username, $password) {
