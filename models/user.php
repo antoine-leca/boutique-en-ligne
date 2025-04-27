@@ -1,20 +1,19 @@
 <?php
-// ajouter au fichier view si besoin d'utiliser la la User
-// require_once __DIR__ . '/../config/Config.php';
-// require_once __DIR__ . '/../controllers/Autoloader.php';
-// \Demetech\Autoloader::register();
-
-// use Demetech\User;
+// ajouter au fichier view si besoin d'utiliser la class User :
+// -------------------------------------------------------------|
+// require_once __DIR__ . '/../controllers/Autoloader.php';     |
+// \Demetech\Autoloader::register();                            |     
+// -------------------------------------------------------------|
 
 namespace Demetech;
-use Demetech\connectionToDB;
+use Demetech\ConnectionToDB;
 
 class User {
     private $conn;
     private $table = 'users';
 
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct() {
+        $this->conn = (new ConnectionToDB('localhost', 'demetech', 'root', ''))->connectDB();
     }
 
     public function create($lastname, $firstname, $mail, $password) {
@@ -34,7 +33,8 @@ class User {
             $stmt->bindParam(':lastname', $lastname);
             $stmt->bindParam(':firstname', $firstname);
             $stmt->bindParam(':mail', $mail);
-            $stmt->bindParam(':password', password_hash($password, PASSWORD_BCRYPT));
+            $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
+            $stmt->bindParam(':password', $hashedPassword);
             return $stmt->execute();
         } catch (\PDOException $e) {
             // message d'erreur
@@ -43,10 +43,10 @@ class User {
         }
     }
 
-    public function read($id) {
-        $query = "SELECT * FROM " . $this->table . " WHERE id = :id";
+    public function read($mail) {
+        $query = "SELECT * FROM " . $this->table . " WHERE mail = :mail";
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(':id', $id);
+        $stmt->bindParam(':mail', $mail);
         $stmt->execute();
         return $stmt->fetch(\PDO::FETCH_ASSOC);
     }
