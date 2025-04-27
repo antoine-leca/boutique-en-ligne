@@ -13,7 +13,8 @@ class Autoloader {
 
             $directories = [
                 __DIR__ . '/../models/',
-                __DIR__ . '/../controllers/'
+                __DIR__ . '/../controllers/',
+                __DIR__ . '/../config/',
             ];
 
             foreach ($directories as $directory) {
