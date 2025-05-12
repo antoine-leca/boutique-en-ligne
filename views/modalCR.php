@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (!empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["password"]) && !empty($_POST["Iconfirm_password"])) {
+    if (!empty($_POST["lastname"]) && !empty($_POST["firstname"]) && !empty($_POST["mail"]) && !empty($_POST["Ipassword"]) && !empty($_POST["Iconfirm_password"])) {
         $lastname = trim($_POST["lastname"]);
         $firstname = trim($_POST["firstname"]);
         $mail = trim($_POST["mail"]);
