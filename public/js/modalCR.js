@@ -1,19 +1,24 @@
 $btnCR = document.getElementById("modalCRbtn");
 modalCR = document.getElementById("modalCR");
 
-// $btnCR.addEventListener("click", function () {
-//     if (modalCR.classList.contains("hidden")) {
-//         modalCR.classList.remove("hidden");
-//     } else {
-//         modalCR.classList.add("hidden");
-//     }
-// });
+$btnCR.addEventListener("click", function () {
+    if (modalCR.classList.contains("hidden")) {
+        modalCR.classList.remove("hidden");
+    } else {
+        modalCR.classList.add("hidden");
+    }
+});
 
 document.addEventListener("DOMContentLoaded", function () {
     const connexionTab = document.getElementById("connexionTab");
     const inscriptionTab = document.getElementById("inscriptionTab");
     const connexionForm = document.getElementById("connexionForm");
     const inscriptionForm = document.getElementById("inscriptionForm");
+    
+    const toastSuccess = document.getElementById("toast-success");
+    const toastError = document.getElementById("toast-error");
+    const toastSuccessMessage = document.getElementById("toast-success-message");
+    const toastErrorMessage = document.getElementById("toast-error-message");
 
     // Fonction pour activer un onglet
     function activateTab(activeTab, inactiveTab) {
@@ -50,4 +55,18 @@ document.addEventListener("DOMContentLoaded", function () {
         inscriptionForm.style.display = "block";
         activateTab(inscriptionTab, connexionTab);
     });
+
+
+    // Afficher le toast en fonction du type
+    if (toastMessage && toastType) {
+        if (toastType === "success") {
+            toastSuccessMessage.textContent = toastMessage;
+            toastSuccess.classList.remove("hidden");
+            setTimeout(() => toastSuccess.classList.add("hidden"), 5000);
+        } else if (toastType === "error") {
+            toastErrorMessage.textContent = toastMessage;
+            toastError.classList.remove("hidden");
+            setTimeout(() => toastError.classList.add("hidden"), 5000);
+        }
+    }
 });
