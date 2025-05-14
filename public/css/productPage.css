@@ -1,0 +1,7 @@
+.main-font {
+    font-family: var(--main-font);
+}
+
+.title-font {
+    font-family: var(--title-font);
+}
