@@ -354,7 +354,7 @@
     <?php require_once __DIR__ . '/../views/header.php'; ?>
 
     <div id="arborescence" class="flex my-4 ml-4">
-        <a class="text-gray-500 sm:text-sm" href="home.php">Accueil</a>
+        <a class="text-gray-500 sm:text-sm" href="/Demetech/index.php">Accueil</a>
         <span class="material-symbols-outlined text-gray-500 ">chevron_right</span>
         <!-- href vers page liste de produits avec filtre actif selon la catégorie" -->
         <a class="capitalize text-gray-500 sm:text-sm" href="#"><?php echo htmlspecialchars($productAssets['category_name']); ?></a>

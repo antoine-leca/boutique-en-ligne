@@ -1,7 +1,7 @@
 <header>
         <div class="navbar">
             <div class="logo">
-                <a href="#">
+                <a href="/Demetech/index.php">
                     <img src="/Demetech/public/assets/Logo_long.png" alt="Demetech Logo" class="logo-image">
                 </a>
             </div>
@@ -11,9 +11,8 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#">Acheter</a></li>
-                    <li><a href="#">Offres</a></li>
+                    <li><a href="/Demetech/index.php" class="active">Accueil</a></li>
+                    <li><a href="#">Produits</a></li>
                 </ul>
             </nav>
             <div class="icons">
