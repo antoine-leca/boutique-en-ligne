@@ -340,7 +340,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Demetech - <?php echo htmlspecialchars($productAssets['name']); ?></title>
     <link rel="stylesheet" href="\Demetech\public\css\root.css">
     <link rel="stylesheet" href="\Demetech\public\css\productPage.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -351,31 +351,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="#">
-                    <img src="/Demetech/public/assets/Logo_long.png" alt="Demetech Logo" class="logo-image">
-                </a>
-            </div>
-            <div class="search-bar">
-                <input type="text" placeholder="Rechercher...">
-                <button type="submit"><i class="fa fa-search"></i></button>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#" class="active">Accueil</a></li>
-                    <li><a href="#">Acheter</a></li>
-                    <li><a href="#">Offres</a></li>
-                </ul>
-            </nav>
-            <div class="icons">
-                <a href="#"><i class="far fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-cart"></i></a>
-                <a href="#"><i class="fas fa-user"></i></a>
-            </div>
-        </div>
-    </header>
+    <?php require_once __DIR__ . '/../views/header.php'; ?>
 
     <div id="arborescence" class="flex my-4 ml-4">
         <a class="text-gray-500 sm:text-sm" href="home.php">Accueil</a>
